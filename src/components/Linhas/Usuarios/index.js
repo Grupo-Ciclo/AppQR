@@ -7,6 +7,7 @@ import { Ionicons, MaterialCommunityIcons  } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
 import { snapPoint } from 'react-native-redash';
 import { styles } from './styles';
+
 import Animated from 'react-native-reanimated';
 const SwipeableRowProps = {
     children: ReactNode,
@@ -63,6 +64,41 @@ const SwipeableRow = ({ children, onPressWhatsapp, onPressEdit, onPressDelete } 
 
     return (
         <View>
+            <View style={styles.SwipeableWhatsapp}>
+                <View style={styles.whatsapp}>
+                    <TouchableOpacity 
+                        style={{alignItems: 'flex-end', flex: 1}}
+                        onPress={() => onPressWhatsapp()}
+                    >
+                        <Ionicons name="logo-whatsapp" size={30} color="#fff" />
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            <View style={styles.SwipeableEdit}>
+                <View style={styles.edit}>
+                    <TouchableOpacity 
+                        style={{alignItems: 'flex-end', flex: 1}}
+                        onPress={() => onPressEdit()}
+                    >
+                        <MaterialCommunityIcons name="account-edit-outline" size={30} color="#fff" />
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            <View style={styles.SwipeableDelete}>
+                <View style={styles.delete}>
+                    <TouchableOpacity 
+                        style={{alignItems: 'flex-start', flex: 1}}
+                        onPress={() => onPressDelete()}
+                    >
+                        <MaterialCommunityIcons name="delete-outline" size={30} color="#FFF" />
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+           
+
             <PanGestureHandler 
                 onGestureEvent={onGestureEvent}
                 activeOffsetX={[-10, 10]}
